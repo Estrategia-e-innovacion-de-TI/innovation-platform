@@ -1,0 +1,10 @@
+<h1>Casos de uso</h1>
+
+{{ use_cases|safe }}
+
+<h2>Agregar Caso de Uso</h2>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Agregar</button>
+</form>

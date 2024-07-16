@@ -1,0 +1,9 @@
+<h1>Artefacto</h1>
+
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Calificar</button>
+</form>
+
+{{ table|safe }}
