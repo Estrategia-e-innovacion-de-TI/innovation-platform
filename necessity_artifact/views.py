@@ -4,7 +4,7 @@ import numpy as np
 from .forms import InnovacionFormularioForm, ResultadosInnovacionForm
 from .models import ResultadosInnovacion
 
-def framework_view(request):
+def necessity_artifact_view(request):
     if request.method == 'POST':
 
         form = InnovacionFormularioForm(request.POST)
@@ -33,7 +33,7 @@ def framework_view(request):
             save_complete_dataframe(df_results)
 
             return render(request,
-                           'framework/resultados.html',
+                           'necessity_artifact/resultados.html',
                              {'metodologias': methodologies,
                               'fase_uno': first_phase,
                               'fase_dos': second_phase,
@@ -44,7 +44,7 @@ def framework_view(request):
 
     else:
         form = InnovacionFormularioForm()
-    return render(request, 'framework/formulario.html', {'form': form})
+    return render(request, 'necessity_artifact/formulario.html', {'form': form})
 
 def save_complete_dataframe(dataframe):
     # Convierte el DataFrame a JSON
@@ -55,7 +55,7 @@ def save_complete_dataframe(dataframe):
     df_storage.save()
 
 def get_results(data):
-    excel_file = 'framework/data/lista_innovacion.xlsx'  # Replace with your Excel file path
+    excel_file = 'necessity_artifact/data/lista_innovacion.xlsx'  # Replace with your Excel file path
     df_lista_innovacion = pd.read_excel(excel_file, skiprows=1)  # Read Excel file into a DataFrame
 
     choosen_purposes  =  list(data.get('proposito_iniciativa'))

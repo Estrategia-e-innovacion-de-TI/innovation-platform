@@ -12,7 +12,7 @@ class ResultadosInnovacionForm(forms.ModelForm):
 class InnovacionFormularioForm(forms.ModelForm):
 
     urgencia = forms.ChoiceField(choices=InnovacionFormulario.URGENCY_CHOICES)
-    complejidad = forms.ChoiceField(choices=InnovacionFormulario.COMPLEXITY_CHOICES,widget=forms.RadioSelect)
+    complejidad = forms.ChoiceField(choices=InnovacionFormulario.COMPLEXITY_CHOICES)#widget=forms.RadioSelect
     incertidumbre = forms.ChoiceField(choices=InnovacionFormulario.UNCERTAINTY_CHOICES)
     usuario = forms.ChoiceField(choices=InnovacionFormulario.USER_CHOICES)
     riesgo = forms.ChoiceField(choices=InnovacionFormulario.RISK_CHOICES)
