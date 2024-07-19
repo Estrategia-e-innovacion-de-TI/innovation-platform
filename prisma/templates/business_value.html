@@ -1,3 +1,13 @@
-<h1>Valor para el negocio</h1>
+{% extends 'layouts/lateral_navbar.html' %}
 
-{{ business_value|safe }}
+{% block content %}
+
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Valor para el Negocio</h1> 
+
+    <div class="table-responsive">
+        {{ business_value|safe }}
+    </div>
+</div>
+
+{% endblock %}
