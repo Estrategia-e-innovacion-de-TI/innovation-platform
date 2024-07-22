@@ -99,8 +99,8 @@ class InnovacionFormulario(models.Model):
     ]
 
 
-    descripcion_iniciativa = models.CharField(max_length=255)
-    objetivos_clave = models.CharField(max_length=255)
+    descripcion_iniciativa = models.TextField()
+    objetivos_clave = models.TextField()
     fase_innovacion = MultiSelectField(choices=FASE_INNOVACION_CHOICES)
     proposito_iniciativa = MultiSelectField(choices=PROPOSITO_INICIATIVA_CHOICES)
 

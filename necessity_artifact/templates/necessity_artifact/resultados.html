@@ -8,6 +8,52 @@
     <link rel="stylesheet" type="text/css" href="{% static 'necessity_artifact/style.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
+<style>
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+        }
+        
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: auto;
+            max-width: 300px;
+            background-color: #555;
+            color: #fff;
+            text-align: left;
+            border-radius: 6px;
+            padding: 10px;
+            position: fixed;
+            z-index: 1;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            transition: opacity 0.3s;
+            white-space: normal;
+            word-wrap: break-word;
+            font-size: 14px;
+        }
+
+        .tooltip .line {
+            display: none;
+            position: absolute;
+            width: 2px;
+            background-color: #555;
+            z-index: 1;
+        }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .tooltip:hover .line {
+            display: block;
+        }
+</style>
+
 <body>
     <div class="container">
         <h1>Resultados</h1>
@@ -39,7 +85,9 @@
                                 {% if tecnica.nombre == "No tenemos sugerencias para tí" %}
                                 <span style = "font-style: italic; color: gray;">{{ metodologia.nombre }}</span>
                                 {% else %}
-                                <a href="{{ metodologia.url }}" class="methodology-name" target="_blank">{{ metodologia.nombre }}<a> 
+                                <a href="{{ metodologia.url }}" class="methodology-name tooltip" target="_blank">{{ metodologia.nombre }}
+                                    <span class="tooltiptext">{{ metodologia.comentario }}</span>
+                                </a>
                                 <span class="methodology-score">{{ metodologia.puntuacion }}</span>
                                 {% endif %}
                             </div>
@@ -100,7 +148,9 @@
                                         {% if tecnica.nombre == "No tenemos sugerencias para tí" %}
                                         <span style = "font-style: italic; color: gray;">{{ tecnica.nombre }}</span>
                                         {% else %}
-                                        <a href="{{ tecnica.url }}" class="technique-name" target="_blank">{{ tecnica.nombre }}</a>
+                                        <a href="{{ tecnica.url }}" class="technique-name tooltip" target="_blank">{{ tecnica.nombre }}
+                                            <span class="tooltiptext">{{ tecnica.comentario }}</span>
+                                        </a>
                                         <span class="technique-score">{{ tecnica.puntuacion }}</span>
                                         {% endif %}
                                     {% endif %}
@@ -118,7 +168,9 @@
                                         {% if tecnica.nombre == "No tenemos sugerencias para tí" %}
                                         <span style = "font-style: italic; color: gray;">{{ tecnica.nombre }}</span>
                                         {% else %}
-                                        <a href="{{ tecnica.url }}" class="technique-name" target="_blank">{{ tecnica.nombre }}</a>
+                                        <a href="{{ tecnica.url }}" class="technique-name tooltip" target="_blank">{{ tecnica.nombre }}
+                                            <span class="tooltiptext">{{ tecnica.comentario }}</span>
+                                        </a>
                                         <span class="technique-score">{{ tecnica.puntuacion }}</span>
                                         {% endif %}
                                     {% endif %}
@@ -137,7 +189,9 @@
                                         {% if tecnica.nombre == "No tenemos sugerencias para tí" %}
                                         <span style = "font-style: italic; color: gray;">{{ tecnica.nombre }}</span>
                                         {% else %}
-                                        <a href="{{ tecnica.url }}" class="technique-name" target="_blank">{{ tecnica.nombre }}</a>
+                                        <a href="{{ tecnica.url }}" class="technique-name tooltip" target="_blank">{{ tecnica.nombre }}
+                                            <span class="tooltiptext">{{ tecnica.comentario }}</span>
+                                        </a>
                                         <span class="technique-score">{{ tecnica.puntuacion }}</span>
                                         {% endif %}
                                     {% endif %}
@@ -155,7 +209,9 @@
                                         {% if tecnica.nombre == "No tenemos sugerencias para tí" %}
                                         <span style = "font-style: italic; color: gray;">{{ tecnica.nombre }}</span>
                                         {% else %}
-                                        <a href="{{ tecnica.url }}" class="technique-name" target="_blank">{{ tecnica.nombre }}</a>
+                                        <a href="{{ tecnica.url }}" class="technique-name tooltip" target="_blank">{{ tecnica.nombre }}
+                                            <span class="tooltiptext">{{ tecnica.comentario }}</span>
+                                        </a>
                                         <span class="technique-score">{{ tecnica.puntuacion }}</span>
                                         {% endif %}
                                     {% endif %}
@@ -173,7 +229,9 @@
                                         {% if tecnica.nombre == "No tenemos sugerencias para tí" %}
                                         <span style = "font-style: italic; color: gray;">{{ tecnica.nombre }}</span>
                                         {% else %}
-                                        <a href="{{ tecnica.url }}" class="technique-name" target="_blank">{{ tecnica.nombre }}</a>
+                                        <a href="{{ tecnica.url }}" class="technique-name tooltip" target="_blank">{{ tecnica.nombre }}
+                                            <span class="tooltiptext">{{ tecnica.comentario }}</span>
+                                        </a>
                                         <span class="technique-score">{{ tecnica.puntuacion }}</span>
                                         {% endif %}
                                     {% endif %}
@@ -191,7 +249,9 @@
                                         {% if tecnica.nombre == "No tenemos sugerencias para tí" %}
                                         <span style = "font-style: italic; color: gray;">{{ tecnica.nombre }}</span>
                                         {% else %}
-                                        <a href="{{ tecnica.url }}" class="technique-name" target="_blank">{{ tecnica.nombre }}</a>
+                                        <a href="{{ tecnica.url }}" class="technique-name tooltip" target="_blank">{{ tecnica.nombre }}
+                                            <span class="tooltiptext">{{ tecnica.comentario }}</span>
+                                        </a>
                                         <span class="technique-score">{{ tecnica.puntuacion }}</span>
                                         {% endif %}
                                     {% endif %}
@@ -204,5 +264,6 @@
             </table>
         </div>
     </div>
+
 </body>
 </html>

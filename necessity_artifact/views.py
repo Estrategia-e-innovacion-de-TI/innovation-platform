@@ -71,7 +71,7 @@ def get_results(data):
 
     return calc_top_methodologies_and_techniques(data, df_innovation_filter=df_lista_innovacion_filter)  
     
-def get_dict(list_result):
+def get_dict(list_result, phase=None, df_notes=None):
     result = []
     if isinstance(list_result, str):     
         return [{'nombre': list_result, 'puntuacion': '','url': ''}]
@@ -81,11 +81,26 @@ def get_dict(list_result):
                 result.append({'nombre': 'No tenemos sugerencias para tí', 'puntuacion': '', 'url': ''})
                 break
             else:
-                result.append({'nombre': item[0], 'puntuacion': str(item[1])+'%', 'url': item[2]})
+                if df_notes is not None and phase is None:
+                    note = df_notes[df_notes['Nombre'] == item[0]]['Descripción'].values
+                    if len(note) > 0:
+                        result.append({'nombre': item[0], 'puntuacion': str(item[1])+'%', 'url': item[2], 'comentario': note[0]})
+                    else:
+                        result.append({'nombre': item[0], 'puntuacion': str(item[1])+'%', 'url': item[2]})
+                elif df_notes is not None:
+                    note = df_notes[df_notes['Nombre'] == item[0]][phase].values
+                    if len(note) > 0:
+                        result.append({'nombre': item[0], 'puntuacion': str(item[1])+'%', 'url': item[2], 'comentario': note[0]})
+                    else:
+                        result.append({'nombre': item[0], 'puntuacion': str(item[1])+'%', 'url': item[2]})
+                else:
+                    result.append({'nombre': item[0], 'puntuacion': str(item[1])+'%', 'url': item[2]})
         return result
 
 
 def calc_top_methodologies_and_techniques(data, **kwargs):
+    excel_file = 'necessity_artifact/data/lista_innovacion.xlsx'  # Replace with your Excel file path
+    df_notes = pd.read_excel(excel_file,sheet_name='comentarios', skiprows=1 ) 
 
     if 'df_innovation_filter' in kwargs:
         df_innovation_filter = kwargs['df_innovation_filter']
@@ -146,7 +161,7 @@ def calc_top_methodologies_and_techniques(data, **kwargs):
     sixth_phase = df_techniques[["Nombre", f"calc_{phases[5]}","Plantilla"]].sort_values(by=f"calc_{phases[5]}",
                                                                                 ascending=False).head(3).values if df_techniques[f"calc_{phases[5]}"].sum() > 0 else "No Seleccionado"
 
-    return get_dict(methodologies), get_dict(first_phase), get_dict(second_phase),get_dict(thrid_phase), get_dict(fourth_phase), get_dict(fifth_phase), get_dict(sixth_phase)
+    return get_dict(methodologies, df_notes = df_notes), get_dict(first_phase,phases[0], df_notes),get_dict(second_phase,phases[1], df_notes),get_dict(thrid_phase,phases[2], df_notes), get_dict(fourth_phase,phases[3], df_notes), get_dict(fifth_phase,phases[4], df_notes), get_dict(sixth_phase,phases[5], df_notes)
 
 
 

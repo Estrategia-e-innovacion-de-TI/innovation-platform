@@ -1,4 +1,7 @@
 __pycache__/
 innovation/__pycache__/
-framework/__pycache__/
+necessity_artifact/__pycache__/
+necessity_artifact/data/get_notes.ipynb
+necessity_artifact/data/comentarios.xlsx
+
 .DS_Store

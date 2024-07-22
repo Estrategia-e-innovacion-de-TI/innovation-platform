@@ -32,7 +32,8 @@ class InnovacionFormularioForm(forms.ModelForm):
         ]
 
         widgets = {
-            'descripcion_iniciativa': forms.TextInput(attrs={'class': 'form-control'}),
+
+            'descripcion_iniciativa': forms.Textarea(attrs={'rows':2, 'cols':80, 'class': 'form-control'}),
             'objetivos_clave': forms.TextInput(attrs={'class': 'form-control'}),
             'fase_innovacion': forms.CheckboxSelectMultiple,
             'proposito_iniciativa': forms.CheckboxSelectMultiple,
