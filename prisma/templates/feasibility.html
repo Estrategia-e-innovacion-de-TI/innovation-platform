@@ -1,0 +1,13 @@
+{% extends 'layouts/base_navbar_lateral.html' %}
+
+{% block content %}
+
+<div class="container mt-5"> <!-- Añade un contenedor con margen superior -->
+    <h1 class="text-center mb-4">Viabilidad Técnica</h1> <!-- Centra el título y añade margen inferior -->
+
+    <div class="table-responsive"> <!-- Asegura responsividad para tablas -->
+        {{ feasibility|safe }}
+    </div>
+</div>
+
+{% endblock %}

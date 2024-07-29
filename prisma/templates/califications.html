@@ -1,0 +1,23 @@
+{% extends 'layouts/base_navbar_lateral.html' %}
+
+{% block content %}
+
+<div class="container mt-5"> 
+    <h1 class="text-center mb-4">Estándar de calificaciones</h1> 
+
+    <div class="mb-5"> 
+        <h2 class="mb-3">Calificaciones para el valor del negocio</h2> <!-- Subtítulo con margen inferior -->
+        <div class="table-responsive"> <!-- Asegura que el contenido sea responsive -->
+            {{ business_califications|safe }}
+        </div>
+    </div>
+
+    <div> <!-- División para calificaciones de viabilidad -->
+        <h2 class="mb-3">Calificaciones para la viabilidad</h2> <!-- Subtítulo con margen inferior -->
+        <div class="table-responsive"> <!-- Asegura que el contenido sea responsive -->
+            {{ feasibility_califications|safe }}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

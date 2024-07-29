@@ -1,0 +1,92 @@
+{% extends 'layouts/base_navbar.html' %}
+
+{% block content %}
+<body>
+    <div class="container">
+        <h1>Cuestionario para la selección de una metodología de innovación</h1>
+        <div class="objective">
+            <h2>Objetivo:</h2>
+            <p>Este cuestionario le ayudará a determinar qué metodología de innovación se ajusta mejor a sus necesidades. La metodología de innovación es un enfoque estructurado y sistemático para la generación de ideas, la implementación de soluciones y la creación de valor en una organización. Al responder las siguientes preguntas, podrá identificar la metodología o técnica de innovación que mejor se adapte a su iniciativa y a los objetivos que desea alcanzar.</p>
+        </div>
+        <div class="instructions">
+            <h2>Instrucciones:</h2>
+            <p>Responda las siguientes preguntas de manera honesta y objetiva. Asigne una puntuación de 1 a 5 para cada pregunta, donde 1 representa el nivel más bajo y 5 el nivel más alto en cada característica. Sus respuestas le ayudarán a determinar qué metodología se ajusta mejor a sus necesidades.</p>
+        </div>
+        <form method="post" action="">
+            {% csrf_token %}
+            <div class="question">
+                <label for="descripcion_iniciativa">Descripción de la iniciativa:</label>
+                {{ form.descripcion_iniciativa }}
+            </div>
+            <div class="question">
+                <label for="objetivos_clave">Objetivos clave en la organización:</label>
+                {{ form.objetivos_clave }}
+            </div>
+            <div class="question">
+                <label for="fase_innovacion">Fase de innovación que desee abordar con la iniciativa:</label>
+                {{ form.fase_innovacion }}
+            </div>
+            <div class="question">
+                <label for="proposito_iniciativa">Propósito de la iniciativa:</label>
+                {{ form.proposito_iniciativa }}
+            </div>
+            <div class="question">
+                <label>Urgencia: ¿Qué tan pronto se espera que se implemente esta solución innovadora?</label>
+                <p>Nota: El nivel de urgencia NO influye en la calidad de la solución, tampoco definirá qué tan rápida será atendida la necesidad, sino, cuál es la metodología de innovación adecuada para abordar la iniciativa.</p>
+                <div class="rating">
+                    {{ form.urgencia }}
+                </div>
+            </div>
+            <div class="question">
+                <label>Complejidad: ¿Qué tan claro es el alcance y los requisitos del proyecto?</label>
+                <div class="rating">
+                    {{ form.complejidad }}
+                </div>
+            </div>
+            <div class="question">
+                <label>Incertidumbre: ¿Cuánto conocimiento tienes sobre el problema y posibles soluciones?</label>
+                <div class="rating">
+                    {{ form.incertidumbre }}
+                </div>
+            </div>
+            <div class="question">
+                <label>Colaboración: ¿Cuántos equipos diferentes deben colaborar en este proyecto?</label>
+                <div class="rating">
+                    {{ form.colaboracion }}
+                </div>
+            </div>
+            <div class="question">
+                <label>Recursos disponibles: ¿Qué tan fácil es obtener los recursos necesarios para llevar a cabo este proyecto de innovación?</label>
+                <div class="rating">
+                    {{ form.recursos }}
+                </div>
+            </div>
+            <div class="question">
+                <label>Flexibilidad: ¿Qué tan importante es la capacidad de adaptación a nuevas circunstancias durante el proyecto?</label>
+                <div class="rating">
+                    {{ form.flexibilidad }}
+                </div>
+            </div>
+            <div class="question">
+                <label>Velocidad de implementación: ¿Cuánto tiempo se puede dedicar al proceso de implementación?</label>
+                <div class="rating">
+                    {{ form.velocidad }}
+                </div>
+            </div>
+            <div class="question">
+                <label>Factor de riesgo: ¿Cuánto impacto tendría un fracaso en este proyecto en comparación con otros proyectos?</label>
+                <div class="rating">
+                    {{ form.riesgo }}
+                </div>
+            </div>
+            <div class="question">
+                <label>Conocimiento del usuario: ¿Cuánta información tienes sobre los usuarios involucrados en el proyecto?</label>
+                <div class="rating">
+                    {{ form.usuario }}
+                </div>
+            </div>
+            <button type="submit" class="submit-button">Ver Resultados</button>
+        </form>
+    </div>
+</body>
+{% endblock %}

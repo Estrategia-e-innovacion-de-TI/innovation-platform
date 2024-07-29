@@ -1,0 +1,21 @@
+{% extends 'layouts/base_navbar_lateral.html' %}
+
+{% block content %}
+
+<div class="container mt-5"> <!-- Contenedor de Bootstrap con margen superior -->
+    <h1 class="text-center mb-4">Artefacto</h1> <!-- Título principal centrado con margen inferior -->
+
+    <form method="POST" class="mb-4"> <!-- Formulario con margen inferior -->
+        {% csrf_token %}
+        <div class="mb-3"> <!-- Añade margen inferior a cada elemento del formulario -->
+            {{ form.as_p }}
+        </div>
+        <button type="submit" class="btn btn-primary">Calificar</button> 
+    </form>
+
+    <div class="table-responsive"> 
+        {{ table|safe }}
+    </div>
+</div>
+
+{% endblock %}

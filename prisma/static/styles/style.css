@@ -1,0 +1,304 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e0e0e0;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    border-radius: 8px;
+}
+
+h1, h2 {
+    color: #0ba682;
+}
+
+.instructions {
+    background-color: #e0e0e0;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.objective {
+    background-color: #e0e0e0;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.results-explanation {
+    background-color: #e0e0e0;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.question {
+    margin: 20px 0;
+}
+
+.question label {
+    font-weight: bold;
+}
+
+.question p {
+    margin: 5px 0;
+}
+
+.rating {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+
+.rating label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.rating input[type="radio"] {
+    margin-right: 5px;
+}
+
+.submit-button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #8e62cc;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.submit-button:hover {
+    background-color: #8e62cc;
+}
+
+
+/* Agrega estilos al formulario */
+form {
+    margin-top: 20px;
+}
+
+/* Estilos para los campos de entrada */
+input[type="text"],
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+/* Estilos para los botones */
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Estilos para los mensajes de error */
+.error-message {
+    color: red;
+    margin-top: 5px;
+}
+
+/* Estilos para los mensajes de éxito */
+.success-message {
+    color: green;
+    margin-top: 5px;
+}
+
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+}
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+th {
+    background-color: #f2f2f2;
+}
+.phase-icon {
+    font-size: 30px;
+    color: #FF7F50;
+    margin-bottom: 10px;
+}
+.arrow {
+    font-size: 20px;
+}
+.highlight {
+    background-color: #d4edda;
+}
+
+.phases {
+    display: inline-flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    background-color: #fdd923;
+}
+
+.phase {
+    width: 30%;
+    margin-bottom: 20px;
+}
+
+.phase-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    color: #ff7e41;
+    
+}
+
+.phase-number {
+    font-size: 24px;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.phase-title {
+    font-size: 18px;
+}
+
+.meth-number {
+    font-size: 24px;
+    font-weight: bold;
+    margin-right: 10px;
+    text-align: center;
+    align-content: baseline;
+}
+
+.methodologies {
+    display: contents;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    background-color: #fff;
+}
+
+.methodology {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    background-color: #fff;
+}
+ 
+.methodology-name {
+    font-weight: bold;
+}   
+
+.methodology-score {
+    background-color: #d4edda;
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: #155724;
+    font-weight: bold;
+}
+.techniques {
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.technique {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    background-color: #fff;
+}
+
+.technique-name {
+    font-weight: bold;
+}
+
+.technique-score {
+    background-color: #d4edda;
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: #155724;
+    font-weight: bold;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: auto;
+    max-width: 300px;
+    background-color: #555;
+    color: #fff;
+    text-align: left;
+    border-radius: 6px;
+    padding: 10px;
+    position: fixed;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    white-space: normal;
+    word-wrap: break-word;
+    font-size: 14px;
+}
+
+.tooltip .line {
+    display: none;
+    position: absolute;
+    width: 2px;
+    background-color: #555;
+    z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+.tooltip:hover .line {
+    display: block;
+}
+
+.navbar {
+    min-height: 80px; 
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-brand img {
+    margin-right: 10px; 
+}
+
+.navbar-nav {
+    align-items: center;
+}
