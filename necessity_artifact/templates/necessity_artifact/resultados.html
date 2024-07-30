@@ -1,262 +1,249 @@
 {% extends 'layouts/base_navbar.html' %}
-
 {% block content %}
-<style>
-        .tooltip {
-            position: relative;
-            display: inline-block;
-            cursor: pointer;
-        }
-        
-        .tooltip .tooltiptext {
-            visibility: hidden;
-            width: auto;
-            max-width: 300px;
-            background-color: #555;
-            color: #fff;
-            text-align: left;
-            border-radius: 6px;
-            padding: 10px;
-            position: fixed;
-            z-index: 1;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            opacity: 0;
-            transition: opacity 0.3s;
-            white-space: normal;
-            word-wrap: break-word;
-            font-size: 14px;
-        }
 
-        .tooltip .line {
-            display: none;
-            position: absolute;
-            width: 2px;
-            background-color: #555;
-            z-index: 1;
-        }
-
-        .tooltip:hover .tooltiptext {
-            visibility: visible;
-            opacity: 1;
-        }
-
-        .tooltip:hover .line {
-            display: block;
-        }
-</style>
-
-<body>
-    <div class="container">
-        <h1>Resultados</h1>
-        <div class="results-explanation">
-            <p>Estos son los resultados de la evaluación de su iniciativa de innovación. A continuación, se presentan las metodologías y técnicas de innovación recomendadas para abordar su necesidad o problema. Cada metodología o técnica se ha evaluado en función de las características de su iniciativa y de los objetivos que desea alcanzar.</p>
-        </div>
-        <div class="results-explanation">
-            <h2>Metodologías</h2>
-            <p>Te sugerimos las siguientes metodologias para que lleves a cabo todo tu proceso de innovación. Los porcentajes reflejan el grado de adecuación de cada metodología para tu proceso. Al hacer click en el nombre de cada metodología, serás dirigido a una plantilla específica que te ayudará a implementarla de manera efectiva.</p>
-        </div>
-        <div class="table-container">
-            <table>
-                <thead>
-                    <tr>
-                        {% for metodologia in metodologias %}
-                        <th>
-                            <div class="phase-header text-center">
-                                <span class="meth-number">{{ forloop.counter }}</span>
-                            </div>
-                        </th>
-                        {% endfor %}
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        {% for metodologia in metodologias %}
-                        <td>
-                            <div class="methodology">
-                                {% if tecnica.nombre == "No tenemos sugerencias para tí" %}
-                                <span style = "font-style: italic; color: gray;">{{ metodologia.nombre }}</span>
-                                {% else %}
-                                <a href="{{ metodologia.url }}" class="methodology-name tooltip" target="_blank">{{ metodologia.nombre }}
-                                    <span class="tooltiptext">{{ metodologia.comentario }}</span>
-                                </a>
-                                <span class="methodology-score">{{ metodologia.puntuacion }}</span>
-                                {% endif %}
-                            </div>
-                        </td>
-                        {% endfor %}
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <div class="results-explanation">
-            <h2>Técnicas por fase de innovación</h2>
-            <p>Te sugerimos las siguientes técnicas o herramientas para cada una de las fases de innovación. Recuerda: Haciendo click en el nombre de cada técnica, accederás a una plantilla que te guiará en su aplicación.</p>
-        </div>
-        <div class="table-container">
-            <table>
-                <thead>
-                    <tr>
-                        <th>
-                            <i class="fas fa-question-circle phase-icon " style="color: #fdd923;"></i><br>
-                            Identificar necesidad / problema<br>
-                            <i class="fas fa-arrow-right arrow"></i>
-                        </th>
-                        <th>
-                            <i class="fas fa-lightbulb phase-icon" style="color: #0ba682;"></i><br>
-                            Generar ideas<br>
-                            <i class="fas fa-arrow-right arrow"></i>
-                        </th>
-                        <th>
-                            <i class="fas fa-hand-pointer phase-icon" style="color: #f5b6cd;"></i><br>
-                            Seleccionar ideas<br>
-                            <i class="fas fa-arrow-right arrow"></i>
-                        </th>
-                        <th>
-                            <i class="fas fa-desktop phase-icon" style="color: #00cbe9;"></i><br>
-                            Prototipar<br>
-                            <i class="fas fa-arrow-right arrow"></i>
-                        </th>
-                        <th>
-                            <i class="fas fa-check-circle phase-icon" style="color: #ff7e41;"></i><br>
-                            Validar<br>
-                            <i class="fas fa-arrow-right arrow"></i>
-                        </th>
-                        <th>
-                            <i class="fas fa-thumbs-up phase-icon" style="color: #8e62cc;"></i><br>
-                            Implementar
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            <div class="techniques">
-                                {% for tecnica in fase_uno %}
-                                    <div class="technique">
-                                        {% if tecnica.nombre == "No Seleccionado" %}
-                                        <span style = "font-style: italic; color: gray;">{{ tecnica.nombre }}</span>
-                                    {% else %}
-                                        {% if tecnica.nombre == "No tenemos sugerencias para tí" %}
-                                        <span style = "font-style: italic; color: gray;">{{ tecnica.nombre }}</span>
-                                        {% else %}
-                                        <a href="{{ tecnica.url }}" class="technique-name tooltip" target="_blank">{{ tecnica.nombre }}
-                                            <span class="tooltiptext">{{ tecnica.comentario }}</span>
-                                        </a>
-                                        <span class="technique-score">{{ tecnica.puntuacion }}</span>
-                                        {% endif %}
-                                    {% endif %}
-                                    </div>
-                                {% endfor %}
-                            </div>
-                        </td>
-                        <td>
-                            <div class="techniques">
-                                {% for tecnica in fase_dos %}
-                                    <div class="technique">
-                                    {% if tecnica.nombre == "No Seleccionado" %}
-                                        <span style = "font-style: italic; color: gray;">{{ tecnica.nombre }}</span>
-                                    {% else %}
-                                        {% if tecnica.nombre == "No tenemos sugerencias para tí" %}
-                                        <span style = "font-style: italic; color: gray;">{{ tecnica.nombre }}</span>
-                                        {% else %}
-                                        <a href="{{ tecnica.url }}" class="technique-name tooltip" target="_blank">{{ tecnica.nombre }}
-                                            <span class="tooltiptext">{{ tecnica.comentario }}</span>
-                                        </a>
-                                        <span class="technique-score">{{ tecnica.puntuacion }}</span>
-                                        {% endif %}
-                                    {% endif %}
-                                    
-                                    </div>
-                                {% endfor %}
-                            </div>
-                        </td>
-                        <td>
-                            <div class="techniques">
-                                {% for tecnica in fase_tres %}
-                                    <div class="technique">
-                                        {% if tecnica.nombre == "No Seleccionado" %}
-                                        <span style = "font-style: italic; color: gray;">{{ tecnica.nombre }}</span>
-                                    {% else %}
-                                        {% if tecnica.nombre == "No tenemos sugerencias para tí" %}
-                                        <span style = "font-style: italic; color: gray;">{{ tecnica.nombre }}</span>
-                                        {% else %}
-                                        <a href="{{ tecnica.url }}" class="technique-name tooltip" target="_blank">{{ tecnica.nombre }}
-                                            <span class="tooltiptext">{{ tecnica.comentario }}</span>
-                                        </a>
-                                        <span class="technique-score">{{ tecnica.puntuacion }}</span>
-                                        {% endif %}
-                                    {% endif %}
-                                    </div>
-                                {% endfor %}
-                            </div>
-                        </td>
-                        <td>
-                            <div class="techniques">
-                                {% for tecnica in fase_cuatro %}
-                                    <div class="technique">
-                                        {% if tecnica.nombre == "No Seleccionado" %}
-                                        <span style = "font-style: italic; color: gray;">{{ tecnica.nombre }}</span>
-                                    {% else %}
-                                        {% if tecnica.nombre == "No tenemos sugerencias para tí" %}
-                                        <span style = "font-style: italic; color: gray;">{{ tecnica.nombre }}</span>
-                                        {% else %}
-                                        <a href="{{ tecnica.url }}" class="technique-name tooltip" target="_blank">{{ tecnica.nombre }}
-                                            <span class="tooltiptext">{{ tecnica.comentario }}</span>
-                                        </a>
-                                        <span class="technique-score">{{ tecnica.puntuacion }}</span>
-                                        {% endif %}
-                                    {% endif %}
-                                    </div>
-                                {% endfor %}
-                            </div>
-                        </td>
-                        <td>
-                            <div class="techniques">
-                                {% for tecnica in fase_cinco %}
-                                    <div class="technique">
-                                        {% if tecnica.nombre == "No Seleccionado" %}
-                                        <span style = "font-style: italic; color: gray;">{{ tecnica.nombre }}</span>
-                                    {% else %}
-                                        {% if tecnica.nombre == "No tenemos sugerencias para tí" %}
-                                        <span style = "font-style: italic; color: gray;">{{ tecnica.nombre }}</span>
-                                        {% else %}
-                                        <a href="{{ tecnica.url }}" class="technique-name tooltip" target="_blank">{{ tecnica.nombre }}
-                                            <span class="tooltiptext">{{ tecnica.comentario }}</span>
-                                        </a>
-                                        <span class="technique-score">{{ tecnica.puntuacion }}</span>
-                                        {% endif %}
-                                    {% endif %}
-                                    </div>
-                                {% endfor %}
-                            </div>
-                        </td>
-                        <td>
-                            <div class="techniques">
-                                {% for tecnica in fase_seis %}
-                                    <div class="technique">
-                                        {% if tecnica.nombre == "No Seleccionado" %}
-                                        <span style = "font-style: italic; color: gray;">{{ tecnica.nombre }}</span>
-                                    {% else %}
-                                        {% if tecnica.nombre == "No tenemos sugerencias para tí" %}
-                                        <span style = "font-style: italic; color: gray;">{{ tecnica.nombre }}</span>
-                                        {% else %}
-                                        <a href="{{ tecnica.url }}" class="technique-name tooltip" target="_blank">{{ tecnica.nombre }}
-                                            <span class="tooltiptext">{{ tecnica.comentario }}</span>
-                                        </a>
-                                        <span class="technique-score">{{ tecnica.puntuacion }}</span>
-                                        {% endif %}
-                                    {% endif %}
-                                    </div>
-                                {% endfor %}
-                            </div>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+<div class="container">
+    <h1>Resultados</h1>
+    <div class="results-explanation">
+        <p>Estos son los resultados de la evaluación de su iniciativa de innovación. A continuación, se presentan las metodologías y técnicas de innovación recomendadas para abordar su necesidad o problema. Cada metodología o técnica se ha evaluado en función de las características de su iniciativa y de los objetivos que desea alcanzar.</p>
     </div>
-
-</body>
+    <div class="results-explanation">
+        <h2>Metodologías</h2>
+        <p>Te sugerimos las siguientes metodologías para que lleves a cabo todo tu proceso de innovación. Los porcentajes reflejan el grado de adecuación de cada metodología para tu proceso. Al hacer click en el nombre de cada metodología, serás dirigido a una plantilla específica que te ayudará a implementarla de manera efectiva.</p>
+    </div>
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    {% for metodologia in metodologias %}
+                    <th>
+                        <div class="phase-header text-center">
+                            <span class="meth-number">{{ forloop.counter }}</span>
+                        </div>
+                    </th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    {% for metodologia in metodologias %}
+                    <td>
+                        <div class="methodology">
+                            {% if metodologia.nombre == "No tenemos sugerencias para tí" %}
+                            <span style="font-style: italic; color: gray;">{{ metodologia.nombre }}</span>
+                            {% else %}
+                            <a href="{{ metodologia.url }}" 
+                                               class="methodology-name" 
+                                               target="_blank" 
+                                               data-toggle="tooltip" 
+                                               data-placement="right"
+                                               title="{{ metodologia.comentario }}">
+                                                {{ metodologia.nombre }}
+                                            </a>
+                                            <span class="methodology-score">{{ metodologia.puntuacion }}</span>
+                            {% endif %}
+                        </div>
+                    </td>
+                    {% endfor %}
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="results-explanation">
+        <h2>Técnicas por fase de innovación</h2>
+        <p>Te sugerimos las siguientes técnicas o herramientas para cada una de las fases de innovación. Recuerda: Haciendo click en el nombre de cada técnica, accederás a una plantilla que te guiará en su aplicación.</p>
+    </div>
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        <i class="fas fa-question-circle phase-icon" style="color: #fdd923;"></i><br>
+                        Identificar necesidad / problema<br>
+                        <i class="fas fa-arrow-right arrow"></i>
+                    </th>
+                    <th>
+                        <i class="fas fa-lightbulb phase-icon" style="color: #0ba682;"></i><br>
+                        Generar ideas<br>
+                        <i class="fas fa-arrow-right arrow"></i>
+                    </th>
+                    <th>
+                        <i class="fas fa-hand-pointer phase-icon" style="color: #f5b6cd;"></i><br>
+                        Seleccionar ideas<br>
+                        <i class="fas fa-arrow-right arrow"></i>
+                    </th>
+                    <th>
+                        <i class="fas fa-desktop phase-icon" style="color: #00cbe9;"></i><br>
+                        Prototipar<br>
+                        <i class="fas fa-arrow-right arrow"></i>
+                    </th>
+                    <th>
+                        <i class="fas fa-check-circle phase-icon" style="color: #ff7e41;"></i><br>
+                        Validar<br>
+                        <i class="fas fa-arrow-right arrow"></i>
+                    </th>
+                    <th>
+                        <i class="fas fa-thumbs-up phase-icon" style="color: #8e62cc;"></i><br>
+                        Implementar
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <div class="techniques">
+                            {% for tecnica in fase_uno %}
+                                <div class="technique">
+                                    {% if tecnica.nombre == "No Seleccionado" %}
+                                    <span style="font-style: italic; color: gray;">{{ tecnica.nombre }}</span>
+                                {% else %}
+                                    {% if tecnica.nombre == "No tenemos sugerencias para tí" %}
+                                    <span style="font-style: italic; color: gray;">{{ tecnica.nombre }}</span>
+                                    {% else %}
+                                    <a href="{{ tecnica.url }}" 
+                                               class="technique-name" 
+                                               target="_blank" 
+                                               data-toggle="tooltip" 
+                                               data-placement="right"
+                                               title="{{ tecnica.comentario }}">
+                                                {{ tecnica.nombre }}
+                                            </a>
+                                            <span class="technique-score">{{ tecnica.puntuacion }}</span>
+                                    {% endif %}
+                                {% endif %}
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </td>
+                    <td>
+                        <div class="techniques">
+                            {% for tecnica in fase_dos %}
+                                <div class="technique">
+                                {% if tecnica.nombre == "No Seleccionado" %}
+                                    <span style="font-style: italic; color: gray;">{{ tecnica.nombre }}</span>
+                                {% else %}
+                                    {% if tecnica.nombre == "No tenemos sugerencias para tí" %}
+                                    <span style="font-style: italic; color: gray;">{{ tecnica.nombre }}</span>
+                                    {% else %}
+                                    <a href="{{ tecnica.url }}" 
+                                               class="technique-name" 
+                                               target="_blank" 
+                                               data-toggle="tooltip" 
+                                               data-placement="right"
+                                               title="{{ tecnica.comentario }}">
+                                                {{ tecnica.nombre }}
+                                            </a>
+                                            <span class="technique-score">{{ tecnica.puntuacion }}</span>
+                                    {% endif %}
+                                {% endif %}
+                                
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </td>
+                    <td>
+                        <div class="techniques">
+                            {% for tecnica in fase_tres %}
+                                <div class="technique">
+                                    {% if tecnica.nombre == "No Seleccionado" %}
+                                    <span style="font-style: italic; color: gray;">{{ tecnica.nombre }}</span>
+                                {% else %}
+                                    {% if tecnica.nombre == "No tenemos sugerencias para tí" %}
+                                    <span style="font-style: italic; color: gray;">{{ tecnica.nombre }}</span>
+                                    {% else %}
+                                    <a href="{{ tecnica.url }}" 
+                                               class="technique-name" 
+                                               target="_blank" 
+                                               data-toggle="tooltip" 
+                                               data-placement="right"
+                                               title="{{ tecnica.comentario }}">
+                                                {{ tecnica.nombre }}
+                                            </a>
+                                            <span class="technique-score">{{ tecnica.puntuacion }}</span>
+                                    {% endif %}
+                                {% endif %}
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </td>
+                    <td>
+                        <div class="techniques">
+                            {% for tecnica in fase_cuatro %}
+                                <div class="technique">
+                                    {% if tecnica.nombre == "No Seleccionado" %}
+                                    <span style="font-style: italic; color: gray;">{{ tecnica.nombre }}</span>
+                                {% else %}
+                                    {% if tecnica.nombre == "No tenemos sugerencias para tí" %}
+                                    <span style="font-style: italic; color: gray;">{{ tecnica.nombre }}</span>
+                                    {% else %}
+                                    <a href="{{ tecnica.url }}" 
+                                               class="technique-name" 
+                                               target="_blank" 
+                                               data-toggle="tooltip" 
+                                               data-placement="right"
+                                               title="{{ tecnica.comentario }}">
+                                                {{ tecnica.nombre }}
+                                            </a>
+                                            <span class="technique-score">{{ tecnica.puntuacion }}</span>
+                                    {% endif %}
+                                {% endif %}
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </td>
+                    <td>
+                        <div class="techniques">
+                            {% for tecnica in fase_cinco %}
+                                <div class="technique">
+                                    {% if tecnica.nombre == "No Seleccionado" %}
+                                    <span style="font-style: italic; color: gray;">{{ tecnica.nombre }}</span>
+                                {% else %}
+                                    {% if tecnica.nombre == "No tenemos sugerencias para tí" %}
+                                    <span style="font-style: italic; color: gray;">{{ tecnica.nombre }}</span>
+                                    {% else %}
+                                    <a href="{{ tecnica.url }}" 
+                                               class="technique-name" 
+                                               target="_blank" 
+                                               data-toggle="tooltip" 
+                                               data-placement="right"
+                                               title="{{ tecnica.comentario }}">
+                                                {{ tecnica.nombre }}
+                                            </a>
+                                            <span class="technique-score">{{ tecnica.puntuacion }}</span>
+                                    {% endif %}
+                                {% endif %}
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </td>
+                    <td>
+                        <div class="techniques">
+                            {% for tecnica in fase_seis %}
+                                <div class="technique">
+                                    {% if tecnica.nombre == "No Seleccionado" %}
+                                        <span style="font-style: italic; color: gray;">{{ tecnica.nombre }}</span>
+                                    {% else %}
+                                        {% if tecnica.nombre == "No tenemos sugerencias para tí" %}
+                                            <span style="font-style: italic; color: gray;">{{ tecnica.nombre }}</span>
+                                        {% else %}
+                                        <a href="{{ tecnica.url }}" 
+                                        class="technique-name" 
+                                        target="_blank" 
+                                        data-toggle="tooltip" 
+                                        data-placement="right"
+                                        title="{{ tecnica.comentario }}">
+                                         {{ tecnica.nombre }}
+                                     </a>
+                                     <span class="technique-score">{{ tecnica.puntuacion }}</span>
+                                        {% endif %}
+                                    {% endif %}
+                                </div>
+                            {% endfor %}
+                        </div>
+                        
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
 {% endblock %}

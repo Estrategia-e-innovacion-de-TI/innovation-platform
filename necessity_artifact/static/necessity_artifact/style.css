@@ -242,50 +242,6 @@ th {
     font-weight: bold;
 }
 
-.tooltip {
-    position: relative;
-    display: inline-block;
-    cursor: pointer;
-}
-
-.tooltip .tooltiptext {
-    visibility: hidden;
-    width: auto;
-    max-width: 300px;
-    background-color: #555;
-    color: #fff;
-    text-align: left;
-    border-radius: 6px;
-    padding: 10px;
-    position: fixed;
-    z-index: 1;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    opacity: 0;
-    transition: opacity 0.3s;
-    white-space: normal;
-    word-wrap: break-word;
-    font-size: 14px;
-}
-
-.tooltip .line {
-    display: none;
-    position: absolute;
-    width: 2px;
-    background-color: #555;
-    z-index: 1;
-}
-
-.tooltip:hover .tooltiptext {
-    visibility: visible;
-    opacity: 1;
-}
-
-.tooltip:hover .line {
-    display: block;
-}
-
 .navbar {
     min-height: 80px; 
 }
