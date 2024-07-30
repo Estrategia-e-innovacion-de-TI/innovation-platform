@@ -1,20 +1,18 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #e0e0e0;
-    margin: 0;
-    padding: 0;
+    font-family: 'Roboto', sans-serif;
 }
 
 .container {
     width: 80%;
     margin: 0 auto;
-    background-color: #fff;
+    background-color: #bba3a3;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
     border-radius: 8px;
 }
 
-h1, h2 {
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
     color: #0ba682;
 }
 
@@ -134,6 +132,7 @@ table {
     width: 100%;
     border-collapse: collapse;
     text-align: center;
+    font-size: 1rem;
 }
 th, td {
     border: 1px solid #ddd;
@@ -302,3 +301,20 @@ th {
 .navbar-nav {
     align-items: center;
 }
+
+#content {
+    padding: 20px;
+  }
+  
+.table-responsive {
+    margin: 0 auto;
+  }
+
+.w-75 {
+  max-width: 75%;
+}
+
+#sidebar {
+    width: 20px; /* Ajusta este valor según tus necesidades */
+}
+

@@ -1,5 +1,4 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +11,7 @@
 </head>
 <body>    
     <!-- Barra de navegación -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light custom-navbar">
         <a class="navbar-brand" href="#">
             <img src="{% static 'bancolombia.png' %}" alt="Logo" width="120" height="20" class="d-inline-block align-top">
             Inicio
@@ -33,32 +32,31 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Radar de oportunidades</a>
-                </li>                
+                </li>
             </ul>
         </div>
     </nav>
-    <div class="d-flex">
-        <!-- Barra lateral -->
-        <div id="sidebar" class="bg-light">
-            <div class="list-group">
-                <a href="{% url 'prisma' %}" class="list-group-item list-group-item-action">Casos de uso</a>
-                <a href="{% url 'business_value' %}" class="list-group-item list-group-item-action">Valor para el negocio</a>
-                <a href="{% url 'feasibility_value' %}" class="list-group-item list-group-item-action">Viabilidad</a>
-                <a href="{% url 'califications' %}" class="list-group-item list-group-item-action">Calificaciones</a>
-                <a href="{% url 'artifact' %}" class="list-group-item list-group-item-action">Artefacto de priorización</a>
-                <a href="{% url 'diagram' %}" class="list-group-item list-group-item-action">Prisma</a>
-                
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Barra lateral -->
+            <div id="sidebar" class="col-md-2 bg-light">
+                <div class="list-group">
+                    <a href="{% url 'prisma' %}" class="list-group-item list-group-item-action">Casos de uso</a>
+                    <a href="{% url 'business_value' %}" class="list-group-item list-group-item-action">Valor para el negocio</a>
+                    <a href="{% url 'feasibility_value' %}" class="list-group-item list-group-item-action">Viabilidad</a>
+                    <a href="{% url 'califications' %}" class="list-group-item list-group-item-action">Calificaciones</a>
+                    <a href="{% url 'artifact' %}" class="list-group-item list-group-item-action">Artefacto de priorización</a>
+                    <a href="{% url 'diagram' %}" class="list-group-item list-group-item-action">Prisma</a>
+                </div>
+            </div>
+            <!-- Contenido principal -->
+            <div class="col-md-10">
+                <!-- Aquí va el contenido principal -->
+                {% block content %}
+                {% endblock %}
             </div>
         </div>
-
-        <!-- Contenido principal -->
-        <div class="flex-grow-1">
-            <!-- Bloque de contenido JINJA -->
-            {% block content %}
-            {% endblock %}
-        </div>
-    </div>
-
+    </div>        
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
