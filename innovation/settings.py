@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'widget_tweaks',
     'prisma',
     'necessity_artifact',
+    'flujo_ml',
+    'flujo_blockchain',
 ]
 
 MIDDLEWARE = [

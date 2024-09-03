@@ -1,0 +1,37 @@
+{% extends 'layouts/base_navbar.html' %}
+
+{% block content %}
+
+<body>
+    <p>Este flujo te guiará a través de una serie de preguntas para ayudarte a determinar si tu problema puede ser resuelto con Blockchain.</p>
+    <h1>{{ pregunta_actual }}</h1>
+    
+    <form method="post">
+        {% csrf_token %}
+        {% for opcion, paso in opciones.items %}
+            <input type="radio" name="respuesta" value="{{ opcion }}" required> {{ opcion }}<br>
+        {% endfor %}
+
+        <!-- Mostrar botón "Siguiente" solo si hay más preguntas -->
+        {% if hay_mas_preguntas %}
+            <button type="submit">Siguiente</button>
+        {% else %}
+            <p>No hay más preguntas.</p>
+        {% endif %}
+    </form>
+
+    <!-- Mostrar las preguntas y respuestas anteriores -->
+    <h2>Historial de preguntas</h2>
+    <ul>
+        {% for pregunta, respuesta in preguntas_resueltas %}
+            <li>{{ forloop.counter }}. {{ pregunta }}: <strong>{{ respuesta }}</strong></li>
+        {% endfor %}
+    </ul>
+    
+    
+
+</body>
+
+
+
+{% endblock %}
