@@ -1,12 +1,14 @@
 * {
+    font-family: 'CIBFontSans', sans-serif;
+    font-style: normal;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
 body {
-    font-family: 'Cibfont Sans', sans-serif;
-    background-color: #f8f8f8;
+    font-family: 'CIBFontSans', sans-serif;
+    background-color: #F7F7F7;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -20,6 +22,15 @@ body {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 80%; 
+    max-width: 1200px; 
+}
+
+header {
+    text-align: left;
+    width: 80%; 
+    max-width: 1200px; 
+    margin-bottom: 150px; 
 }
 
 header h1 {
@@ -30,12 +41,12 @@ header h1 {
 }
 
 header h2 {
-    font-size: 36px;
+    font-family: 'CIBFontSans', sans-serif;
+    font-size: 60px;
     font-weight: bold;
     color: #000;
     margin-bottom: 20px;
     text-align: left;
-    margin-bottom: 20px;
 }
 
 .tools {
@@ -69,5 +80,27 @@ footer {
 footer img {
     width: 150px;
     float: left;
-    margin-right: 950px;
+    margin-right: 1030px;
+}
+
+.description-container {
+    display: none;
+    margin-top: 10px;
+    text-align: left;
+}
+
+.description-container p {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.description-container .btn {
+    display: inline-block;
+}
+
+.tool.selected {
+    border: 2px solid #007bff; 
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #f0f8ff; 
 }

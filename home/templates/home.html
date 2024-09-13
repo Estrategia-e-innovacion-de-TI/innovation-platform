@@ -9,36 +9,60 @@
     <link rel="stylesheet" href="{% static 'styles/styles.css' %}">
 </head>
 <body>
+    <header>
+        <h1>Plataforma de Herramientas de Innovación</h1>
+        <h2>¿Cómo quieres<br> innovar hoy?</h2>
+    </header>
+    
     <div class="container">
-        <header>
-            <h1>Plataforma de Herramientas de Innovación</h1>
-            <h2>¿Cómo quieres<br> innovar hoy?</h2>
-        </header>
-
         <div class="tools">
-            <div class="tool">
+            <div class="tool" data-description="Descripción del flujo de Machine Learning" data-link="{% url 'inicio_flujo' %}">
                 <img src="{% static 'icono_machine_learning.svg' %}" alt="Flujo Machine Learning">
                 <p>Flujo <br> Machine Learning</p>
+                <div class="description-container">
+                    <p class="description-text"></p>
+                    <a class="description-link btn btn-primary" href="#" target="_blank">Ir a la herramienta</a>
+                </div>
             </div>
-            <div class="tool">
+            <div class="tool" data-description="Descripción del flujo de Blockchain" data-link="{% url 'inicio_flujo_blockchain' %}">
                 <img src="{% static 'icono_blockchain.svg' %}" alt="Flujo Blockchain">
                 <p>Flujo <br> Blockchain</p>
+                <div class="description-container">
+                    <p class="description-text"></p>
+                    <a class="description-link btn btn-primary" href="#" target="_blank">Ir a la herramienta</a>
+                </div>
             </div>
-            <div class="tool">
+            <div class="tool" data-description="Descripción del artefacto de Identificación" data-link="{% url 'necessity_artifact' %}">
                 <img src="{% static 'icono_identificacion.svg' %}" alt="Artefacto de Identificación">
                 <p>Artefacto de <br> Identificación</p>
+                <div class="description-container">
+                    <p class="description-text"></p>
+                    <a class="description-link btn btn-primary" href="#" target="_blank">Ir a la herramienta</a>
+                </div>
             </div>
-            <div class="tool">
+            <div class="tool" data-description="Descripción del artefacto Prisma" data-link="{% url 'prisma' %}">
                 <img src="{% static 'icono_prisma.svg' %}" alt="Artefacto Prisma">
                 <p>Artefacto <br> Prisma</p>
+                <div class="description-container">
+                    <p class="description-text"></p>
+                    <a class="description-link btn btn-primary" href="#" target="_blank">Ir a la herramienta</a>
+                </div>
             </div>
-            <div class="tool">
+            <div class="tool" data-description="En desarrollo..." data-link="{% url 'home' %}">
                 <img src="{% static 'icono_tendencias.svg' %}" alt="Radar de Tendencias">
                 <p>Radar de <br> Tendencias</p>
+                <div class="description-container">
+                    <p class="description-text"></p>
+                    <a class="description-link btn btn-primary" href="#" target="_blank">Ir a la herramienta</a>
+                </div>
             </div>
-            <div class="tool">
+            <div class="tool" data-description="En desarrollo..." data-link="{% url 'home' %}">
                 <img src="{% static 'icono_oportunidades.svg' %}" alt="Radar de Oportunidades">
                 <p>Radar de <br> Oportunidades</p>
+                <div class="description-container">
+                    <p class="description-text"></p>
+                    <a class="description-link btn btn-primary" href="#" target="_blank">Ir a la herramienta</a>
+                </div>
             </div>
         </div>
     </div>
@@ -47,5 +71,6 @@
         <img src="{% static 'bancolombia.png' %}" alt="Bancolombia">
     </footer>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <script src="{% static 'scripts/main.js' %}"></script>
 </body>
 </html>
