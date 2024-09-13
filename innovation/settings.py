@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'necessity_artifact',
     'flujo_ml',
     'flujo_blockchain',
+    'home',
 ]
 
 MIDDLEWARE = [

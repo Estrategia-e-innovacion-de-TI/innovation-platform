@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plataforma de Innovación</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'styles/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Plataforma de Herramientas de Innovación</h1>
+            <h2>¿Cómo quieres<br> innovar hoy?</h2>
+        </header>
+
+        <div class="tools">
+            <div class="tool">
+                <img src="{% static 'icono_machine_learning.svg' %}" alt="Flujo Machine Learning">
+                <p>Flujo <br> Machine Learning</p>
+            </div>
+            <div class="tool">
+                <img src="{% static 'icono_blockchain.svg' %}" alt="Flujo Blockchain">
+                <p>Flujo <br> Blockchain</p>
+            </div>
+            <div class="tool">
+                <img src="{% static 'icono_identificacion.svg' %}" alt="Artefacto de Identificación">
+                <p>Artefacto de <br> Identificación</p>
+            </div>
+            <div class="tool">
+                <img src="{% static 'icono_prisma.svg' %}" alt="Artefacto Prisma">
+                <p>Artefacto <br> Prisma</p>
+            </div>
+            <div class="tool">
+                <img src="{% static 'icono_tendencias.svg' %}" alt="Radar de Tendencias">
+                <p>Radar de <br> Tendencias</p>
+            </div>
+            <div class="tool">
+                <img src="{% static 'icono_oportunidades.svg' %}" alt="Radar de Oportunidades">
+                <p>Radar de <br> Oportunidades</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <img src="{% static 'bancolombia.png' %}" alt="Bancolombia">
+    </footer>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
